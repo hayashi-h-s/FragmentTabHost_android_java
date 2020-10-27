@@ -1,0 +1,44 @@
+
+
+<!--https://dev.classmethod.jp/articles/android-tips-38-fragment-tab-host/-->
+
+
+
+<androidx.fragment.app.FragmentTabHost
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<!--        タブの View である TabWidget を @android:id/tabs という id で配置-->
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"/>
+
+<!--
+・FrameLayout を @android:id/tabcontent という id で配置します。
+・これは実際には表示されない View になりますが、こうすることで FragmentTabHost
+がそれぞれの View をパーツとして使ってくれます-->
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0"/>
+
+        <FrameLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</androidx.fragment.app.FragmentTabHost>
