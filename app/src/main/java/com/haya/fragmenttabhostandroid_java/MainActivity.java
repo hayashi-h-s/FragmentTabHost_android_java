@@ -29,9 +29,11 @@ public class MainActivity extends FragmentActivity {
     TabHost.TabSpec tabSpec1 = host.newTabSpec("tab1");
     Button button1 = new Button(this);
     button1.setBackgroundResource(R.drawable.ic_baseline_account_balance_24);
+    //http://y-anz-m.blogspot.com/2010/11/andoridtabwidget.html
     tabSpec1.setIndicator(button1);
     Bundle bundle1 = new Bundle();
-    bundle1.putString("name", "Tab1");
+    bundle1.putString("name", "Tab1だよ。どーも。");
+    // SampleFragment のデータをhostに追加
     host.addTab(tabSpec1, SampleFragment.class, bundle1);
 
     TabHost.TabSpec tabSpec2 = host.newTabSpec("tab2");
@@ -40,6 +42,7 @@ public class MainActivity extends FragmentActivity {
     tabSpec2.setIndicator(button2);
     Bundle bundle2 = new Bundle();
     bundle2.putString("name", "Tab2");
+
     host.addTab(tabSpec2, SampleFragment.class, bundle2);
 
     TabHost.TabSpec tabSpec3 = host.newTabSpec("tab3");
