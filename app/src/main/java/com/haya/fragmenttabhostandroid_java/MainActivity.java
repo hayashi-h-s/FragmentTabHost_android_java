@@ -15,7 +15,11 @@ import android.widget.TabHost;
 import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity {
-
+  // 参考サイト
+// https://dev.classmethod.jp/articles/android-tips-38-fragment-tab-host/
+//  TabSpec#setIndicator() です。これはタブの View になります。String を渡すとデフォルトのタブボタンの View が使われます。
+//  最後に FragmentTabHost#addTab() でタブを追加します。
+//
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -32,6 +36,7 @@ public class MainActivity extends FragmentActivity {
     //http://y-anz-m.blogspot.com/2010/11/andoridtabwidget.html
     tabSpec1.setIndicator(button1);
     Bundle bundle1 = new Bundle();
+    // 情報を渡している
     bundle1.putString("name", "Tab1だよ。どーも。");
     // SampleFragment のデータをhostに追加
     host.addTab(tabSpec1, SampleFragment.class, bundle1);
