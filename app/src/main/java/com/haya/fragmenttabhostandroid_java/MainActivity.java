@@ -27,6 +27,7 @@ public class MainActivity extends FragmentActivity {
 
     //FragmentTabHost のIDを宣言
     FragmentTabHost host = (FragmentTabHost) findViewById(android.R.id.tabhost);
+    // セット
     host.setup(this, getSupportFragmentManager(), R.id.content);
 
     // tabSpec1 の
@@ -41,10 +42,13 @@ public class MainActivity extends FragmentActivity {
     // SampleFragment のデータをhostに追加
     host.addTab(tabSpec1, SampleFragment.class, bundle1);
 
+    // newTabSpec インスタンス
     TabHost.TabSpec tabSpec2 = host.newTabSpec("tab2");
     Button button2 = new Button(this);
     button2.setBackgroundResource(R.drawable.tab_cennter);
+    // タブの View
     tabSpec2.setIndicator(button2);
+    // フラグメントに渡す情報
     Bundle bundle2 = new Bundle();
     bundle2.putString("name", "Tab2");
 
@@ -59,6 +63,7 @@ public class MainActivity extends FragmentActivity {
     host.addTab(tabSpec3, SampleFragment.class, bundle3);
   }
 
+  // フラグメントを作成しているクラス
   public static class SampleFragment extends Fragment {
 
     @Override
@@ -66,6 +71,8 @@ public class MainActivity extends FragmentActivity {
 
       TextView textView = new TextView(getActivity());
       textView.setGravity(Gravity.CENTER);
+
+      // bundleで渡した情報をセットしている
       textView.setText(getArguments().getString("name"));
 
       return textView;
